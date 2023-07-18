@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode
+*.pt
+output
+output_2
+scripts/command.md
+visual_output
+abandoned_case/
