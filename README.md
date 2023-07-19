@@ -39,7 +39,7 @@ Results reported below show accuracy across 3 UDA datasets. Our APT method adopt
 | [VPT-deep](https://arxiv.org/abs/2203.17274)              |   83.9   |   89.4    |   86.2   | 
 | [MaPLe](https://arxiv.org/abs/2210.03117)                 |   84.2   |   89.6    |   83.5   |
 | [DAPL](https://arxiv.org/abs/2202.06687)                  |   84.4   |   81.2    |   89.5   |
-| [APT](网址)                                               |   **85.7**   |   **91.2**    | **89.7** | 
+| [APT](网址)(Ours)                                             |   **85.7**   |   **91.2**    | **89.7** | 
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
@@ -108,10 +108,8 @@ bash scripts/apt/main_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
 ```bash
 # evaluates on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
 bash scripts/apt/eval_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
-
-# The details are at each method folder in scripts folder
 ```
-
+The details are at each method folder in scripts folder(scipts/).
 <hr />
 
 ## Citation
