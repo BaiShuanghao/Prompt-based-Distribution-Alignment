@@ -39,7 +39,7 @@ Results reported below show accuracy across 3 UDA datasets. Our APT method adopt
 | [VPT-deep](https://arxiv.org/abs/2203.17274)              |   83.9   |   89.4    |   86.2   | 
 | [MaPLe](https://arxiv.org/abs/2210.03117)                 |   84.2   |   89.6    |   83.5   |
 | [DAPL](https://arxiv.org/abs/2202.06687)                  |   84.4   |   81.2    |   89.5   |
-| [APT](网址)                                               |   **85.7**   |   **91.2**    | **78.55** | 
+| [APT](网址)                                               |   **85.7**   |   **91.2**    | **89.7** | 
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
