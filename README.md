@@ -11,7 +11,7 @@ Official implementation of the paper "[Attention-based-Prompt-Tuning for Unsuper
 
 ## Highlights
 
-![main figure](模型图片地址)
+![main figure](model.png)
 > **<p align="justify"> Abstract:** *摘要* </p>
 
 ## Main Contributions
