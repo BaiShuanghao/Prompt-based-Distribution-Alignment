@@ -28,7 +28,7 @@ We conduct extensive experiments on three commonly used domain adaptation benchm
 
 ## Results
 ### APT in comparison with existing prompt tuning methods
-Results reported below show accuracy across 3 UDA datasets.
+Results reported below show accuracy across 3 UDA datasets. Our APT method adopts the paradigm of MaPLe.
 
 | Name                                                      | Office-Home Acc. | Office-31 Acc. |  VisDA-2017 Acc.  | 
 |-----------------------------------------------------------|:---------:|:----------:|:---------:|
@@ -43,7 +43,7 @@ Results reported below show accuracy across 3 UDA datasets.
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
-This codebase is tested on Ubuntu 20.04.2 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
+This codebase is tested on Ubuntu 18.04 LTS with python 3.7. Follow the below steps to create environment and install dependencies.
 
 * Setup conda environment.
 ```bash
@@ -74,9 +74,9 @@ python setup.py develop
 cd ..
 ```
 
-* Clone MaPLe code repository and install requirements
+* Clone APT code repository and install requirements
 ```bash
-# Clone MaPLe code base
+# Clone APT code base
 git clone https://github.com/muzairkhattak/multimodal-prompt-learning.git
 
 cd multimodal-prompt-learning/
