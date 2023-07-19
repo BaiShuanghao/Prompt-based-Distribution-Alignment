@@ -49,17 +49,17 @@ Results reported below show accuracy for base and novel classes for across 11 re
 For installation and other package requirements, please follow the instructions as follows. 
 This codebase is tested on Ubuntu 20.04.2 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
 
-* Setup conda environment (recommended).
+* Setup conda environment.
 ```bash
 # Create a conda environment
-conda create -y -n maple python=3.8
+conda create -y -n apt python=3.7
 
 # Activate the environment
-conda activate maple
+conda activate apt
 
 # Install torch (requires version >= 1.8.1) and torchvision
-# Please refer to https://pytorch.org/ if you need a different cuda version
-pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+# Please refer to https://pytorch.org/get-started/previous-versions/ if your cuda version is different
+conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch
 ```
 
 * Install dassl library.
