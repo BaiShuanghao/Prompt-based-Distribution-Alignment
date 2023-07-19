@@ -174,6 +174,9 @@ class ImageEncoder_Conv(nn.Module):
         self.dim = clip_model.text_projection.shape[1]
 
     def forward(self, x, vctx=None, deep_vctx=None, return_feat=False):
+        '''
+        Maybe futherly there will be some prompt tuning methods for convolutional networks
+        '''
         def stem(x):
             for conv, bn, relu in [(self.conv1, self.bn1, self.relu1), (self.conv2, self.bn2, self.relu2), (self.conv3, self.bn3, self.relu3)]:
                 x = relu(bn(conv(x)))
@@ -186,7 +189,7 @@ class ImageEncoder_Conv(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)  # [B, C, H, W] = [B, 2048, 7, 7]
-        if return_feat:
+        if return_feat:     # you can modify the code as you need 
             Fs = x.permute(0, 2, 3, 1).view(x.shape[0], -1, x.shape[1]) # [B, 49, 2048]
             Fs = F.adaptive_avg_pool1d(Fs, self.dim) # [B, 49, 1024]
         x = self.attnpool(x)    # [B, 1024]
