@@ -96,9 +96,12 @@ Datasets list:
 
 
 ## Training and Evaluation
-Please follow the instructions as follows for training, evaluating and reproducing the results.
+Please follow the instructions for training, evaluating and reproducing the results.
+Firstly, you need to modify the directory of data.
+### Training 
+```bash
 
-
+```
 
 <hr />
 
@@ -111,13 +114,13 @@ bibtex
 
 ## Acknowledgements
 
-Our code is based on [CoOp and CoCoOp](https://github.com/KaiyangZhou/CoOp), [DAPL](https://github.com/LeapLabTHU/DAPrompt/tree/main) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) repository. We thank the authors for releasing their code. If you use our model and code, please consider citing these works as well.
+Our code is based on [CoOp and CoCoOp](https://github.com/KaiyangZhou/CoOp), [DAPL](https://github.com/LeapLabTHU/DAPrompt/tree/main) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) etc. repository. We thank the authors for releasing their code. If you use our model and code, please consider citing these works as well.
 Supported methods are as follows:
 
 | Method                    | Paper                                         |                             Code                            |  
 |---------------------------|:----------------------------------------------:|:---------------------------------------------------------------:|
 | CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134) |  [link](https://github.com/KaiyangZhou/CoOp)                  |
-| CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557) |                 [link](configs/trainers/CoCoOp)                 |
+| CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557) |             [link](configs/trainers/CoCoOp)                 |
 | IVLP                      | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  |
 | MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  |
 | DAPL                      | [-](https://arxiv.org/abs/2202.06687)       | [link](https://github.com/LeapLabTHU/DAPrompt)  |
