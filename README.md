@@ -20,20 +20,21 @@ We conduct extensive experiments on three commonly used domain adaptation benchm
 
 ## Main Contributions
 
-1) ****
+1) We propose a two-branch \textbf{a}ttention-based \textbf{p}rompt \textbf{t}uning (\textbf{APT}) method. APT takes advantage of prompt learning and attention mechanism, and thus explores more domain-invariant features with much fewer parameters.
+2) With the benefit of the powerful zero-shot inference ability of CLIP, we design a self-attention and cross-attention mechanism that is suitable for prompt-tuning CLIP methods, which allows the model and the prompt to better adapt to the target domain. 
+3) We conduct an empirical experiment to verify the effectiveness of applying zero-shot CLIP and prompt-tuning CLIP for UDA. Moreover, extensive experiments on Office-Home, Office-31 and Visda-2017 datasets demonstrate that our proposed APT method has achieved state-of-the-art performance by comparing the prompt-tuning methods and a series of UDA methods.
 
 
 ## Supported Methods
 
-[comment]: <> (| Language Prompting            | MaPLe |  [link]&#40;configs/trainers/IVLP/vit_b16_c2_ep5_batch4_4ctx_language_only.yaml&#41;      |      |)
-
 | Method                    | Paper                                         |                             Code                            |  
 |---------------------------|:----------------------------------------------|:---------------------------------------------------------------:|
  
-| CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134) |                  [link](configs/trainers/CoOp)                  |
+| CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134) |               [link](https://github.com/KaiyangZhou/CoOp)                  |
 | CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557) |                 [link](configs/trainers/CoCoOp)                 |
 | IVLP                      | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  |
 | MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  |
+| DAPL                      | [---](https://arxiv.org/abs/2202.06687)       | [link](https://github.com/LeapLabTHU/DAPrompt)  |
 
 <hr />
 
