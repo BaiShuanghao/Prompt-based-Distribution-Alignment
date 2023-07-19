@@ -83,6 +83,7 @@ cd Attention-based-Prompt-Tuning/
 
 # Install requirements
 pip install -r requirements.txt
+'''
 
 ## Data preparation
 Please follow the instructions as follows to prepare all datasets.
