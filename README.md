@@ -109,7 +109,7 @@ bash scripts/apt/main_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
 # evaluates on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
 bash scripts/apt/eval_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
 ```
-The details are at each method folder in scripts folder(scripts/).
+The details are at each method folder in [scripts folder](scripts/).
 <hr />
 
 ## Citation
