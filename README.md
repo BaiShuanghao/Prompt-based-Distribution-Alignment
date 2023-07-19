@@ -26,6 +26,7 @@ We conduct extensive experiments on three commonly used domain adaptation benchm
 
 
 ## Supported Methods
+[comment]: <> (| Language Prompting            | MaPLe |  [link]&#40;configs/trainers/IVLP/vit_b16_c2_ep5_batch4_4ctx_language_only.yaml&#41;      |      |)
 
 | Method                    | Paper                                         |                             Code                            |  
 |---------------------------|:----------------------------------------------|:---------------------------------------------------------------:|
