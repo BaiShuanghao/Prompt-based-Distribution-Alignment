@@ -19,18 +19,17 @@ Official implementation of the paper "[Attention-based-Prompt-Tuning for Unsuper
 1) ****
 
 
-## :ballot_box_with_check: Supported Methods
+## Supported Methods
 
 [comment]: <> (| Language Prompting            | MaPLe |  [link]&#40;configs/trainers/IVLP/vit_b16_c2_ep5_batch4_4ctx_language_only.yaml&#41;      |      |)
 
 | Method                    | Paper                                         |                             Code                            |  
 |---------------------------|:----------------------------------------------|:---------------------------------------------------------------:|
-| MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  | 
+ 
 | CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134) |                  [link](configs/trainers/CoOp)                  |
-| Co-CoOp                   | [CVPR 2022](https://arxiv.org/abs/2203.05557) |                 [link](configs/trainers/CoCoOp)                 |
-| Deep Vision Prompting     | -                                             |    [link](configs/trainers/VPT/vit_b16_c2_ep5_batch4_4.yaml)    | 
-| Deep Language Prompting   | -                                             |  [link](configs/trainers/IVLP/vit_b16_c2_ep5_batch4_4ctx_language_only.yaml)  |
-| Independent V-L Prompting | -                                             | [link](configs/trainers/IVLP/vit_b16_c2_ep5_batch4_2+2ctx.yaml) | 
+| CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557) |                 [link](configs/trainers/CoCoOp)                 |
+| IVLP                      | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  |
+| MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](configs/trainers/MaPLe/vit_b16_c2_ep5_batch4_2ctx.yaml)  |
 
 <hr />
 
@@ -43,13 +42,58 @@ Results reported below show accuracy for base and novel classes for across 11 re
 | [CLIP](https://arxiv.org/abs/2103.00020)                  |   69.34   |   74.22    |   71.70   |   -    |  
 | [CoOp](https://arxiv.org/abs/2109.01134)                  | **82.69** |   63.22    |   71.66   |  200   | 
 | [CoCoOp](https://arxiv.org/abs/2203.05557) |   80.47   |   71.69    |   75.83   |   10   | 
-| [MaPLe (ours)](https://arxiv.org/abs/2210.03117)  |   82.28   | **75.14**  | **78.55** |   5    |  
+| [MaPLe](https://arxiv.org/abs/2210.03117)  |   82.28   | **75.14**  | **78.55** |   5    |  
+| [VPT](网址)  |   82.28   | **75.14**  | **78.55** |   5    |  
 
 ## Installation 
-For installation and other package requirements, please follow the instructions detailed in [INSTALL.md](docs/INSTALL.md). 
+For installation and other package requirements, please follow the instructions as follows. 
+This codebase is tested on Ubuntu 20.04.2 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
+
+* Setup conda environment (recommended).
+```bash
+# Create a conda environment
+conda create -y -n maple python=3.8
+
+# Activate the environment
+conda activate maple
+
+# Install torch (requires version >= 1.8.1) and torchvision
+# Please refer to https://pytorch.org/ if you need a different cuda version
+pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+```
+
+* Install dassl library.
+```bash
+# Instructions borrowed from https://github.com/KaiyangZhou/Dassl.pytorch#installation
+
+# Clone this repo
+git clone https://github.com/KaiyangZhou/Dassl.pytorch.git
+cd Dassl.pytorch/
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install this library (no need to re-build if the source code is modified)
+python setup.py develop
+cd ..
+```
+
+* Clone MaPLe code repository and install requirements
+```bash
+# Clone MaPLe code base
+git clone https://github.com/muzairkhattak/multimodal-prompt-learning.git
+
+cd multimodal-prompt-learning/
+# Install requirements
+
+pip install -r requirements.txt
 
 ## Data preparation
 Please follow the instructions at [DATASETS.md](docs/DATASETS.md) to prepare all datasets.
+Datasets list:
+- [Office-Home](网站)
+- [Office-31](网站)
+- [VisDA-2017](网站)
 
 ## Model Zoo
 
