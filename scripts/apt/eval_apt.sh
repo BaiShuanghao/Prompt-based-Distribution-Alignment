@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # custom config
-DATA= # your directory
+DATA= # ********** your directory ***********
 
 DATASET=$1
 CFG=$2  # config file
@@ -27,8 +27,8 @@ VP=True
 VDEEP=True
 SHARE=True
 
+# bash scripts/apt/eval_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
 DIR=output/APT/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/tdeep${TDEEP}_vdeep${VDEEP}_${LOCATION}/${DOMAINS}_ntok${NTOK}
-
 
 python train.py \
   --gpu ${GPU} \
@@ -49,6 +49,5 @@ python train.py \
   TRAINER.APT.NUM_TOKENS ${NTOK} \
   TRAINER.APT.LOCATION ${LOCATION} \
   TRAINER.APT.DEEP_LAYERS ${DEEPLAYER} \
-  TRAINER.APT.DEEP_SHARED ${SHARE} \
-  DATASET.NUM_SHOTS ${SHOTS}
+  TRAINER.APT.DEEP_SHARED ${SHARE} 
   

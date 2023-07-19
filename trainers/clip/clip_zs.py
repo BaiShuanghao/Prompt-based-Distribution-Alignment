@@ -9,16 +9,6 @@ from trainers.baseda import *
 from utils.clip_part import *
 from utils.templates import CUSTOM_TEMPLATES
 
-from torchcam.methods import SmoothGradCAMpp
-from torchvision.io.image import read_image
-from torchvision.transforms.functional import normalize, resize, to_pil_image
-import matplotlib.pyplot as plt
-from torchcam.utils import overlay_mask
-
-from pytorch_grad_cam import GradCAM, HiResCAM, ScoreCAM, GradCAMPlusPlus, AblationCAM, XGradCAM, EigenCAM, FullGrad
-from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
-from pytorch_grad_cam.utils.image import show_cam_on_image
-
 
 class CustomCLIP(Base_CustomCLIP):
     def __init__(self, cfg, classnames, clip_model):

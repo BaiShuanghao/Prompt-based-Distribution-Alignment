@@ -23,8 +23,8 @@ class PromptLearner(Base_PromptLearner):
     def __init__(self, cfg, classnames, clip_model):
         super().__init__(cfg, classnames, clip_model)
         n_cls = len(classnames)
-        n_ctx = cfg.TRAINER.ADAPT.N_CTX
-        ctx_init = cfg.TRAINER.ADAPT.CTX_INIT
+        n_ctx = cfg.TRAINER.APT.N_CTX
+        ctx_init = cfg.TRAINER.APT.CTX_INIT
         dtype = clip_model.dtype
         ctx_dim = clip_model.ln_final.weight.shape[0]   # text encoder hidden size(512)
         self.dim = clip_model.text_projection.shape[1]
@@ -32,16 +32,16 @@ class PromptLearner(Base_PromptLearner):
         cfg_imsize = cfg.INPUT.SIZE[0]
         assert cfg_imsize == clip_imsize, f"cfg_imsize ({cfg_imsize}) must equal to clip_imsize ({clip_imsize})"
         
-        self.tp = cfg.TRAINER.ADAPT.TP
-        self.vp = cfg.TRAINER.ADAPT.VP
-        self.t_deep = cfg.TRAINER.ADAPT.T_DEEP
-        self.v_deep = cfg.TRAINER.ADAPT.V_DEEP
-        self.deep_share = cfg.TRAINER.ADAPT.DEEP_SHARED
-        self.share_layer = cfg.TRAINER.ADAPT.SHARE_LAYER
-        self.num_tokens = cfg.TRAINER.ADAPT.NUM_TOKENS    # number of prompted tokens
-        self.deep_layer = cfg.TRAINER.ADAPT.DEEP_LAYERS # num of layer has prompt ([1,3]: 1~3 layer has)
-        self.location = cfg.TRAINER.ADAPT.LOCATION
-        self.prompt_dropout = nn.Dropout(cfg.TRAINER.ADAPT.DROPOUT)
+        self.tp = cfg.TRAINER.APT.TP
+        self.vp = cfg.TRAINER.APT.VP
+        self.t_deep = cfg.TRAINER.APT.T_DEEP
+        self.v_deep = cfg.TRAINER.APT.V_DEEP
+        self.deep_share = cfg.TRAINER.APT.DEEP_SHARED
+        self.share_layer = cfg.TRAINER.APT.SHARE_LAYER
+        self.num_tokens = cfg.TRAINER.APT.NUM_TOKENS    # number of prompted tokens
+        self.deep_layer = cfg.TRAINER.APT.DEEP_LAYERS # num of layer has prompt ([1,3]: 1~3 layer has)
+        self.location = cfg.TRAINER.APT.LOCATION
+        self.prompt_dropout = nn.Dropout(cfg.TRAINER.APT.DROPOUT)
         self.num_layer = cfg.MODEL.NUM_LAYER
         self.hidden_size = cfg.MODEL.HIDDEN_SIZE    # visual encoder hiden size(768)
         
@@ -111,9 +111,9 @@ class PromptLearner(Base_PromptLearner):
             nn.init.normal_(deep_vctx_vectors, std=0.02)
             self.deep_vctx = nn.Parameter(deep_vctx_vectors)
                 
-        print('ADAPT design: Attention Domain Adaption Prompt Tuning')
+        print('APT design: Attention Domain APTion Prompt Tuning')
         print(f'Initial context: "{prompt_prefix}"')
-        print(f"Number of ADAPT context words (tokens): {n_ctx}")
+        print(f"Number of APT context words (tokens): {n_ctx}")
         
         classnames = [name.replace("_", " ") for name in classnames]
         name_lens = [len(_tokenizer.encode(name)) for name in classnames]
@@ -292,7 +292,7 @@ class APT(BaseDA):
         print(f"Loading CLIP (backbone: {cfg.MODEL.BACKBONE.NAME})")
         clip_model = load_clip_to_cpu(cfg)
 
-        if cfg.TRAINER.ADAPT.PREC == "fp32" or cfg.TRAINER.ADAPT.PREC == "amp":
+        if cfg.TRAINER.APT.PREC == "fp32" or cfg.TRAINER.APT.PREC == "amp":
             clip_model.float()  # CLIP's default precision is fp16
 
         print("Building custom CLIP...")
@@ -335,12 +335,12 @@ class APT(BaseDA):
         self.optim = build_optimizer(self.model.prompt_learner, cfg.OPTIM)
         self.sched = build_lr_scheduler(self.optim, cfg.OPTIM)
         self.register_model("prompt_learner", self.model.prompt_learner, self.optim, self.sched)
-        self.scaler = GradScaler() if cfg.TRAINER.ADAPT.PREC == "amp" else None
+        self.scaler = GradScaler() if cfg.TRAINER.APT.PREC == "amp" else None
 
         self.construct_bank()
         
     def forward_backward(self, batch_x, batch_u):
-        prec = self.cfg.TRAINER.ADAPT.PREC
+        prec = self.cfg.TRAINER.APT.PREC
         image_x, label, image_u = self.parse_batch_train(batch_x, batch_u)
 
         if prec == "amp":
@@ -379,7 +379,6 @@ class APT(BaseDA):
         input = input.to(self.device)
         label = label.to(self.device)
         input_u = input_u.to(self.device)
-        label_u = label_u.to(self.device)
         return input, label, input_u
     
     @torch.no_grad()
