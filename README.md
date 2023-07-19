@@ -12,7 +12,11 @@ Official implementation of the paper "[Attention-based-Prompt-Tuning for Unsuper
 ## Highlights
 
 ![main figure](model.png)
-> **<p align="justify"> Abstract:** *摘要* </p>
+> **<p align="justify"> Abstract:** *Unsupervised domain adaptation (UDA) aims to learn a generalizable model using labeled data from a source domain and unlabeled data from a target domain. Conventional UDA methods mainly focus on aligning divergences and utilizing adversarial learning to learn domain-invariant features. 
+Inspired by the powerful zero-shot inference ability of the pre-trained visual-language foundation model such as CLIP, we empirically demonstrate that zero-shot CLIP and prompt-tuning CLIP exhibit outstanding generalization performance on the UDA problem. 
+Based on this insight, in this work, we propose an \textbf{a}ttention-based \textbf{p}rompt \textbf{t}uning (\textbf{APT}) method that enhances the generalization ability of prompt tuning methods for UDA. 
+Specifically, we utilize zero-shot CLIP to generate pseudo labels, which are used to construct a source-domain and target-domain feature bank to get attention pairs. Then the attention block explores cross-domain informative features to embed into the prompt and model.
+We conduct extensive experiments on three commonly used domain adaptation benchmarks, namely Office-Home, Office-31 and VisDA-2017, and demonstrate that APT achieves state-of-the-art performance.* </p>
 
 ## Main Contributions
 
