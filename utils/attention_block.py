@@ -2,7 +2,6 @@ from einops import rearrange
 import torch.nn as nn
 
 
-
 class APT_ATTN_Block(nn.Module):
     """ ADAPT attention """
 

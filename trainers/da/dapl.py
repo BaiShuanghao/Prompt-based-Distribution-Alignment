@@ -1,3 +1,14 @@
+'''
+@article{ge2022domain,
+  title={Domain adaptation via prompt learning},
+  author={Ge, Chunjiang and Huang, Rui and Xie, Mixue and Lai, Zihang and Song, Shiji and Li, Shuang and Huang, Gao},
+  journal={arXiv preprint arXiv:2202.06687},
+  year={2022}
+}
+
+Adapted from https://github.com/LeapLabTHU/DAPrompt
+'''
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F

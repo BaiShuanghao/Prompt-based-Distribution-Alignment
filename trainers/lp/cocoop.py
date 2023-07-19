@@ -1,4 +1,15 @@
-import os.path as osp
+'''
+@inproceedings{zhou2022conditional,
+  title={Conditional prompt learning for vision-language models},
+  author={Zhou, Kaiyang and Yang, Jingkang and Loy, Chen Change and Liu, Ziwei},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={16816--16825},
+  year={2022}
+}
+
+Adapted from https://github.com/KaiyangZhou/CoOp
+'''
+
 from collections import OrderedDict
 
 import torch
@@ -18,7 +29,9 @@ from trainers.baseda import *
 from utils.clip_part import *
 from utils.templates import CUSTOM_TEMPLATES
 
+
 _tokenizer = _Tokenizer()
+
 
 class PromptLearner(Base_PromptLearner):
     def __init__(self, cfg, classnames, clip_model):

@@ -111,7 +111,7 @@ class PromptLearner(Base_PromptLearner):
             nn.init.normal_(deep_vctx_vectors, std=0.02)
             self.deep_vctx = nn.Parameter(deep_vctx_vectors)
                 
-        print('APT design: Attention Domain APTion Prompt Tuning')
+        print('APT design: Attention-based Prompt Tuning for UDA')
         print(f'Initial context: "{prompt_prefix}"')
         print(f"Number of APT context words (tokens): {n_ctx}")
         

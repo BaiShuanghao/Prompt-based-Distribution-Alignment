@@ -1,3 +1,27 @@
+'''
+@inproceedings{jia2022visual,
+  title={Visual prompt tuning},
+  author={Jia, Menglin and Tang, Luming and Chen, Bor-Chun and Cardie, Claire and Belongie, Serge and Hariharan, Bharath and Lim, Ser-Nam},
+  booktitle={Computer Vision--ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23--27, 2022, Proceedings, Part XXXIII},
+  pages={709--727},
+  year={2022},
+  organization={Springer}
+}
+
+Adapted from https://github.com/KMnP/vpt
+
+
+@article{bahng2022exploring,
+  title={Exploring visual prompts for adapting large-scale models},
+  author={Bahng, Hyojin and Jahanian, Ali and Sankaranarayanan, Swami and Isola, Phillip},
+  journal={arXiv preprint arXiv:2203.17274},
+  year={2022}
+}
+
+Adapted from https://github.com/hjbahng/visual_prompting
+'''
+
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F

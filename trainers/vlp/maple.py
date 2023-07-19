@@ -1,3 +1,15 @@
+'''
+@inproceedings{khattak2023maple,
+  title={Maple: Multi-modal prompt learning},
+  author={Khattak, Muhammad Uzair and Rasheed, Hanoona and Maaz, Muhammad and Khan, Salman and Khan, Fahad Shahbaz},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={19113--19122},
+  year={2023}
+}
+
+Adapted from https://github.com/muzairkhattak/multimodal-prompt-learning
+'''
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F

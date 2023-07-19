@@ -1,3 +1,14 @@
+"""
+@article{bahng2022exploring,
+  title={Exploring visual prompts for adapting large-scale models},
+  author={Bahng, Hyojin and Jahanian, Ali and Sankaranarayanan, Swami and Isola, Phillip},
+  journal={arXiv preprint arXiv:2203.17274},
+  year={2022}
+}
+
+Adapted from https://github.com/hjbahng/visual_prompting
+"""
+
 import torch
 import torch.nn as nn
 import numpy as np

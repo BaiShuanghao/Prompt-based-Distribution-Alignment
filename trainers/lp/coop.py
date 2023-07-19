@@ -1,3 +1,19 @@
+'''
+@article{zhou2022learning,
+  title={Learning to prompt for vision-language models},
+  author={Zhou, Kaiyang and Yang, Jingkang and Loy, Chen Change and Liu, Ziwei},
+  journal={International Journal of Computer Vision},
+  volume={130},
+  number={9},
+  pages={2337--2348},
+  year={2022},
+  publisher={Springer}
+}
+
+Adapted from https://github.com/KaiyangZhou/CoOp
+'''
+
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
