@@ -27,7 +27,7 @@ VP=True
 VDEEP=True
 SHARE=True
 
-# bash scripts/PDA/main_PDA.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
+# bash scripts/pda/main_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 DIR=output/PDA/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/tdeep${TDEEP}_vdeep${VDEEP}_${LOCATION}/${DOMAINS}_ntok${NTOK}
 
 if [ -d "$DIR" ]; then
