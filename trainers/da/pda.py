@@ -23,8 +23,8 @@ class PromptLearner(Base_PromptLearner):
     def __init__(self, cfg, classnames, clip_model):
         super().__init__(cfg, classnames, clip_model)
         n_cls = len(classnames)
-        n_ctx = cfg.TRAINER.APT.N_CTX
-        ctx_init = cfg.TRAINER.APT.CTX_INIT
+        n_ctx = cfg.TRAINER.PDA.N_CTX
+        ctx_init = cfg.TRAINER.PDA.CTX_INIT
         dtype = clip_model.dtype
         ctx_dim = clip_model.ln_final.weight.shape[0]   # text encoder hidden size(512)
         self.dim = clip_model.text_projection.shape[1]
@@ -32,16 +32,16 @@ class PromptLearner(Base_PromptLearner):
         cfg_imsize = cfg.INPUT.SIZE[0]
         assert cfg_imsize == clip_imsize, f"cfg_imsize ({cfg_imsize}) must equal to clip_imsize ({clip_imsize})"
         
-        self.tp = cfg.TRAINER.APT.TP
-        self.vp = cfg.TRAINER.APT.VP
-        self.t_deep = cfg.TRAINER.APT.T_DEEP
-        self.v_deep = cfg.TRAINER.APT.V_DEEP
-        self.deep_share = cfg.TRAINER.APT.DEEP_SHARED
-        self.share_layer = cfg.TRAINER.APT.SHARE_LAYER
-        self.num_tokens = cfg.TRAINER.APT.NUM_TOKENS    # number of prompted tokens
-        self.deep_layer = cfg.TRAINER.APT.DEEP_LAYERS # num of layer has prompt ([1,3]: 1~3 layer has)
-        self.location = cfg.TRAINER.APT.LOCATION
-        self.prompt_dropout = nn.Dropout(cfg.TRAINER.APT.DROPOUT)
+        self.tp = cfg.TRAINER.PDA.TP
+        self.vp = cfg.TRAINER.PDA.VP
+        self.t_deep = cfg.TRAINER.PDA.T_DEEP
+        self.v_deep = cfg.TRAINER.PDA.V_DEEP
+        self.deep_share = cfg.TRAINER.PDA.DEEP_SHARED
+        self.share_layer = cfg.TRAINER.PDA.SHARE_LAYER
+        self.num_tokens = cfg.TRAINER.PDA.NUM_TOKENS    # number of prompted tokens
+        self.deep_layer = cfg.TRAINER.PDA.DEEP_LAYERS # num of layer has prompt ([1,3]: 1~3 layer has)
+        self.location = cfg.TRAINER.PDA.LOCATION
+        self.prompt_dropout = nn.Dropout(cfg.TRAINER.PDA.DROPOUT)
         self.num_layer = cfg.MODEL.NUM_LAYER
         self.hidden_size = cfg.MODEL.HIDDEN_SIZE    # visual encoder hiden size(768)
         
@@ -111,9 +111,9 @@ class PromptLearner(Base_PromptLearner):
             nn.init.normal_(deep_vctx_vectors, std=0.02)
             self.deep_vctx = nn.Parameter(deep_vctx_vectors)
                 
-        print('APT design: Attention-based Prompt Tuning for UDA')
+        print('Prompt design: Prompt-based Distribution Alignment for UDA')
         print(f'Initial context: "{prompt_prefix}"')
-        print(f"Number of APT context words (tokens): {n_ctx}")
+        print(f"Number of PDA context words (tokens): {n_ctx}")
         
         classnames = [name.replace("_", " ") for name in classnames]
         name_lens = [len(_tokenizer.encode(name)) for name in classnames]
@@ -130,7 +130,7 @@ class PromptLearner(Base_PromptLearner):
         self.tokenized_prompts = tokenized_prompts  
         self.name_lens = name_lens
 
-        self.attn_block = APT_ATTN_Block(clip_model, beta_s=0.1, beta_t=0.1)
+        self.attn_block = PDA_ATTN_Block(clip_model, beta_s=0.1, beta_t=0.1)
         self.K = 5
         self.dim = clip_model.text_projection.shape[1]
         source_feat_bank = torch.zeros((self.n_cls * self.K, self.dim)).half()
@@ -282,7 +282,7 @@ class CustomCLIP(Base_CustomCLIP):
 
 
 @TRAINER_REGISTRY.register()
-class APT(BaseDA):
+class PDA(BaseDA):
     def build_model(self):
         cfg = self.cfg
         classnames = self.dm.dataset.classnames
@@ -292,7 +292,7 @@ class APT(BaseDA):
         print(f"Loading CLIP (backbone: {cfg.MODEL.BACKBONE.NAME})")
         clip_model = load_clip_to_cpu(cfg)
 
-        if cfg.TRAINER.APT.PREC == "fp32" or cfg.TRAINER.APT.PREC == "amp":
+        if cfg.TRAINER.PDA.PREC == "fp32" or cfg.TRAINER.PDA.PREC == "amp":
             clip_model.float()  # CLIP's default precision is fp16
 
         print("Building custom CLIP...")
@@ -335,12 +335,12 @@ class APT(BaseDA):
         self.optim = build_optimizer(self.model.prompt_learner, cfg.OPTIM)
         self.sched = build_lr_scheduler(self.optim, cfg.OPTIM)
         self.register_model("prompt_learner", self.model.prompt_learner, self.optim, self.sched)
-        self.scaler = GradScaler() if cfg.TRAINER.APT.PREC == "amp" else None
+        self.scaler = GradScaler() if cfg.TRAINER.PDA.PREC == "amp" else None
 
         self.construct_bank()
         
     def forward_backward(self, batch_x, batch_u):
-        prec = self.cfg.TRAINER.APT.PREC
+        prec = self.cfg.TRAINER.PDA.PREC
         image_x, label, image_u = self.parse_batch_train(batch_x, batch_u)
 
         if prec == "amp":

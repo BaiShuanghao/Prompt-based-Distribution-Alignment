@@ -197,25 +197,25 @@ def extend_cfg(cfg, args):
         cfg.TRAINER.DAPL.N_DMX = 16     # number of DSC tokens "real"
         cfg.TRAINER.DAPL.N_CTX = 16     # number of context vectors    "an image of" 
         
-    elif args.trainer == 'APT':
-        cfg.TRAINER.APT = CN()
-        cfg.TRAINER.APT.PREC = "fp16"  # fp16, fp32, amp  
-        cfg.TRAINER.APT.DROPOUT = 0.0
+    elif args.trainer == 'PDA':
+        cfg.TRAINER.PDA = CN()
+        cfg.TRAINER.PDA.PREC = "fp16"  # fp16, fp32, amp  
+        cfg.TRAINER.PDA.DROPOUT = 0.0
         
-        cfg.TRAINER.APT.TP = True
-        cfg.TRAINER.APT.T_DEEP = False
-        cfg.TRAINER.APT.N_CTX = 2                       # number of text context vectors
-        cfg.TRAINER.APT.CSC = False                     # class-specific context
-        cfg.TRAINER.APT.CTX_INIT = "a photo of a"       # initialization words
-        cfg.TRAINER.APT.CLASS_TOKEN_POSITION = "end"    # 'middle' or 'end' or 'front'
+        cfg.TRAINER.PDA.TP = True
+        cfg.TRAINER.PDA.T_DEEP = False
+        cfg.TRAINER.PDA.N_CTX = 2                       # number of text context vectors
+        cfg.TRAINER.PDA.CSC = False                     # class-specific context
+        cfg.TRAINER.PDA.CTX_INIT = "a photo of a"       # initialization words
+        cfg.TRAINER.PDA.CLASS_TOKEN_POSITION = "end"    # 'middle' or 'end' or 'front'
         
-        cfg.TRAINER.APT.VP = False
-        cfg.TRAINER.APT.V_DEEP = False
-        cfg.TRAINER.APT.NUM_TOKENS = 2          # number of visual context vectors
-        cfg.TRAINER.APT.DEEP_SHARED = False     # whether relation or not
-        cfg.TRAINER.APT.DEEP_LAYERS = None      # if set to be an int, then do partial-deep prompt tuning
-        cfg.TRAINER.APT.SHARE_LAYER = [0, 5]    # the prompt of front 5 layer is shared
-        cfg.TRAINER.APT.LOCATION = "middle"
+        cfg.TRAINER.PDA.VP = False
+        cfg.TRAINER.PDA.V_DEEP = False
+        cfg.TRAINER.PDA.NUM_TOKENS = 2          # number of visual context vectors
+        cfg.TRAINER.PDA.DEEP_SHARED = False     # whether relation or not
+        cfg.TRAINER.PDA.DEEP_LAYERS = None      # if set to be an int, then do partial-deep prompt tuning
+        cfg.TRAINER.PDA.SHARE_LAYER = [0, 5]    # the prompt of front 5 layer is shared
+        cfg.TRAINER.PDA.LOCATION = "middle"
         
         
 def setup_cfg(args):

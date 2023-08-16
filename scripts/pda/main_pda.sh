@@ -27,8 +27,8 @@ VP=True
 VDEEP=True
 SHARE=True
 
-# bash scripts/apt/main_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
-DIR=output/APT/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/tdeep${TDEEP}_vdeep${VDEEP}_${LOCATION}/${DOMAINS}_ntok${NTOK}
+# bash scripts/PDA/main_PDA.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
+DIR=output/PDA/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/tdeep${TDEEP}_vdeep${VDEEP}_${LOCATION}/${DOMAINS}_ntok${NTOK}
 
 if [ -d "$DIR" ]; then
   echo "Results are available in ${DIR}, so skip this job"
@@ -42,16 +42,16 @@ else
     --root ${DATA} \
     --trainer ${TRAINER} \
     --dataset-config-file configs/datasets/${DATASET}.yaml \
-    --config-file configs/trainers/APT/${CFG}.yaml \
+    --config-file configs/trainers/PDA/${CFG}.yaml \
     --output-dir ${DIR} \
-    TRAINER.APT.TP ${TP}\
-    TRAINER.APT.T_DEEP ${TDEEP} \
-    TRAINER.APT.N_CTX ${NTOK} \
-    TRAINER.APT.VP ${VP} \
-    TRAINER.APT.V_DEEP ${VDEEP}\
-    TRAINER.APT.NUM_TOKENS ${NTOK} \
-    TRAINER.APT.LOCATION ${LOCATION} \
-    TRAINER.APT.DEEP_LAYERS ${DEEPLAYER} \
-    TRAINER.APT.DEEP_SHARED ${SHARE} 
+    TRAINER.PDA.TP ${TP}\
+    TRAINER.PDA.T_DEEP ${TDEEP} \
+    TRAINER.PDA.N_CTX ${NTOK} \
+    TRAINER.PDA.VP ${VP} \
+    TRAINER.PDA.V_DEEP ${VDEEP}\
+    TRAINER.PDA.NUM_TOKENS ${NTOK} \
+    TRAINER.PDA.LOCATION ${LOCATION} \
+    TRAINER.PDA.DEEP_LAYERS ${DEEPLAYER} \
+    TRAINER.PDA.DEEP_SHARED ${SHARE} 
     
 fi
