@@ -71,7 +71,7 @@ python setup.py develop
 cd ..
 ```
 
-* Clone PDA code repository and install requirements
+* Clone PDA code repository and install requirements.
 ```bash
 # Clone PDA code base
 git clone https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment.git
