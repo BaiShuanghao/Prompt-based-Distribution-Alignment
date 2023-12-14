@@ -14,7 +14,7 @@ from clip.simple_tokenizer import SimpleTokenizer as _Tokenizer
 from trainers.baseda import *
 from utils.clip_part import *
 from utils.templates import CUSTOM_TEMPLATES
-from utils.attention_block import *
+from utils.ift_block import *
 
 _tokenizer = _Tokenizer()
 
@@ -130,7 +130,7 @@ class PromptLearner(Base_PromptLearner):
         self.tokenized_prompts = tokenized_prompts  
         self.name_lens = name_lens
 
-        self.attn_block = PDA_ATTN_Block(clip_model, beta_s=0.1, beta_t=0.1)
+        self.attn_block = IFT_Module(clip_model, beta_s=0.1, beta_t=0.1)
         self.K = 5
         self.dim = clip_model.text_projection.shape[1]
         source_feat_bank = torch.zeros((self.n_cls * self.K, self.dim)).half()

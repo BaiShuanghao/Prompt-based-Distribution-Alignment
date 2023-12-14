@@ -15,20 +15,19 @@ LOCATION=middle
 DEEPLAYER=None
 TP=True
 
-# CoOp
+# text prompt
 # TDEEP=False
 # VP=False
 # VDEEP=False
 # SHARE=False
 
-# MaPLe
+# multi-modal prompt
 TDEEP=True
 VP=True
 VDEEP=True
 SHARE=True
 
-# bash scripts/pda/main_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
-DIR=output/PDA/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/tdeep${TDEEP}_vdeep${VDEEP}_${LOCATION}/${DOMAINS}_ntok${NTOK}
+DIR=output/pda/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/tdeep${TDEEP}_vdeep${VDEEP}_${LOCATION}/${DOMAINS}_ntok${NTOK}
 
 if [ -d "$DIR" ]; then
   echo "Results are available in ${DIR}, so skip this job"

@@ -2,8 +2,8 @@ from einops import rearrange
 import torch.nn as nn
 
 
-class APT_ATTN_Block(nn.Module):
-    """ ADAPT attention """
+class IFT_Module(nn.Module):
+    """ IFT """
 
     def __init__(self, clip_model, beta_s=1.0, beta_t=1.0,
                 ):
@@ -64,4 +64,3 @@ class APT_ATTN_Block(nn.Module):
         logits = logits_s + logits_t
     
         return logits
-

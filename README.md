@@ -55,12 +55,27 @@ conda activate pda
 conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch
 ```
 
+* Install dassl library.
+```bash
+# Instructions borrowed from https://github.com/KaiyangZhou/Dassl.pytorch#installation
+
+# Clone this repo
+git clone https://github.com/KaiyangZhou/Dassl.pytorch.git
+cd Dassl.pytorch
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install this library (no need to re-build if the source code is modified)
+python setup.py develop
+cd ..
+```
+
 * Clone PDA code repository and install requirements
 ```bash
 # Clone PDA code base
-https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment.git
-
-cd Prompt-based-Distribution-Alignment/
+git clone https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment.git
+cd Prompt-based-Distribution-Alignment
 
 # Install requirements
 pip install -r requirements.txt
@@ -78,7 +93,7 @@ Datasets list:
 
 ## Training and Evaluation
 Please follow the instructions for training, evaluating and reproducing the results.
-Firstly, you need to modify the directory of data.
+Firstly, you need to **modify the directory of data by yourself**.
 ### Training 
 ```bash
 # Example: trains on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
