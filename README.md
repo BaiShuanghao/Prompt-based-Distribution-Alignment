@@ -1,45 +1,42 @@
-# Attention-based-Prompt-Tuning for Unsupervised Domain Adaptation
+# Prompt-based Distribution Alignment [AAAI 2024]
 
-
-
-> [**Attention-based-Prompt-Tuning for Unsupervised Domain Adaptation**](arXiv网址)<br>
-> [作者名](作者网页),
-
-
-Official implementation of the paper "[Attention-based-Prompt-Tuning for Unsupervised Domain Adaptation](arXiv网站)".
+Official implementation of the paper "[Prompt-based Distribution Alignment for Unsupervised Domain Adaptation](arXiv网站)".
 <hr />
 
 ## Highlights
 
-![main figure](model.png)
-> **<p align="justify"> Abstract:** *Unsupervised domain adaptation (UDA) aims to learn a generalizable model using labeled data from a source domain and unlabeled data from a target domain. Conventional UDA methods mainly focus on aligning divergences and utilizing adversarial learning to learn domain-invariant features. 
-Inspired by the powerful zero-shot inference ability of the pre-trained visual-language foundation model such as CLIP, we empirically demonstrate that zero-shot CLIP and prompt-tuning CLIP exhibit outstanding generalization performance on the UDA problem. 
-Based on this insight, in this work, we propose an attention-based prompt tuning (APT}) method that enhances the generalization ability of prompt tuning methods for UDA. 
-Specifically, we utilize zero-shot CLIP to generate pseudo labels, which are used to construct a source-domain and target-domain feature bank to get attention pairs. Then the attention block explores cross-domain informative features to embed into the prompt and model.
-We conduct extensive experiments on three commonly used domain adaptation benchmarks, namely Office-Home, Office-31 and VisDA-2017, and demonstrate that APT achieves state-of-the-art performance.* </p>
+![main figure](model.jpg)
+> **<p align="justify"> Abstract:** *Recently, despite the unprecedented success of large pre-trained visual-language models (VLMs) on a wide range of downstream tasks, the real-world unsupervised domain adaptation (UDA) problem is still not well explored.
+Therefore, in this paper, we first experimentally demonstrate that the unsupervised-trained VLMs can significantly reduce the distribution discrepancy between source and target domains, thereby improving the performance of UDA. 
+However, a major challenge for directly deploying such models on downstream UDA tasks is prompt engineering, which requires aligning the domain knowledge of source and target domains, since the performance of UDA is severely influenced by a good domain-invariant representation.
+We further propose a \textbf{P}rompt-based \textbf{D}istribution \textbf{A}lignment (\textbf{PDA}) method to incorporate the domain knowledge into prompt learning. Specifically, PDA employs a two-branch prompt-tuning paradigm, namely base branch and alignment branch.
+The base branch focuses on integrating class-related representation into prompts, ensuring discrimination among different classes. 
+To further minimize domain discrepancy, for the alignment branch, we construct feature banks for both the source and target domains and propose image-guided feature tuning (IFT) to make the input attend to feature banks, which effectively integrates self-enhanced and cross-domain features into the model. 
+In this way, these two branches can be mutually promoted to enhance the adaptation of VLMs for UDA.
+We conduct extensive experiments on three benchmarks to demonstrate that our proposed PDA achieves state-of-the-art performance.* </p>
 
 ## Main Contributions
 
-1) We propose a two-branch attention-based prompt tuning (APT) method. APT takes advantage of prompt learning and attention mechanism, and thus explores more domain-invariant features with much fewer parameters.
-2) With the benefit of the powerful zero-shot inference ability of CLIP, we design a self-attention and cross-attention mechanism that is suitable for prompt-tuning CLIP methods, which allows the model and the prompt to better adapt to the target domain. 
-3) We conduct an empirical experiment to verify the effectiveness of applying zero-shot CLIP and prompt-tuning CLIP for UDA. Moreover, extensive experiments on Office-Home, Office-31 and Visda-2017 datasets demonstrate that our proposed APT method has achieved state-of-the-art performance by comparing the prompt-tuning methods and a series of UDA methods.
+1) We first experimentally verify the effectiveness of VLM on UDA downstream tasks. Then, based on this finding, we further propose a prompt-based distribution alignment (PDA) method to tune prompt to the target domain.
+2) The proposed PDA includes two training branches. First, the base branch ensures discrimination among different classes. Second, the aligned branch obtains the domain-invariant information by image-guided feature tuning.
+3) Extensive experiments demonstrate the effectiveness of the proposed PDA, which achieves state-of-the-art performance on Office-Home, Office-31 and VisDA-2017.
 
 <hr />
 
 ## Results
-### APT in comparison with existing prompt tuning methods
-Results reported below show accuracy across 3 UDA datasets. Our APT method adopts the paradigm of MaPLe.
+### PDA in comparison with existing prompt tuning methods
+Results reported below show accuracy across 3 UDA datasets with ViT-B/16 backbone. Our PDA method adopts the paradigm of multi-modal prompt tuning.
 
 | Name                                                      | Office-Home Acc. | Office-31 Acc. |  VisDA-2017 Acc.  | 
 |-----------------------------------------------------------|:---------:|:----------:|:---------:|
 | [CLIP](https://arxiv.org/abs/2103.00020)                  |   82.1   |   77.5    |   88.9   | 
 | [CoOp](https://arxiv.org/abs/2109.01134)                  |   83.9   |   89.4    |   82.7   |
 | [CoCoOp](https://arxiv.org/abs/2203.05557)                |   84.1   |   88.9    |   84.2   | 
-| [VPT*](https://arxiv.org/abs/2203.17274)                  |   81.7   |   77.4    |   88.7   | 
+| [VP](https://arxiv.org/abs/2203.17274)                    |   81.7   |   77.4    |   88.7   | 
 | [VPT-deep](https://arxiv.org/abs/2203.17274)              |   83.9   |   89.4    |   86.2   | 
 | [MaPLe](https://arxiv.org/abs/2210.03117)                 |   84.2   |   89.6    |   83.5   |
 | [DAPL](https://arxiv.org/abs/2202.06687)                  |   84.4   |   81.2    |   89.5   |
-| [APT](网址)(Ours)                                             |   **85.7**   |   **91.2**    | **89.7** | 
+| [PDA](网址)(Ours)                                             |   **85.7**   |   **91.2**    | **89.7** | 
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
@@ -48,38 +45,22 @@ This codebase is tested on Ubuntu 18.04 LTS with python 3.7. Follow the below st
 * Setup conda environment.
 ```bash
 # Create a conda environment
-conda create -y -n apt python=3.7
+conda create -y -n pda python=3.7
 
 # Activate the environment
-conda activate apt
+conda activate pda
 
 # Install torch (requires version >= 1.8.1) and torchvision
 # Please refer to https://pytorch.org/get-started/previous-versions/ if your cuda version is different
 conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch
 ```
 
-* Install dassl library.
+* Clone PDA code repository and install requirements
 ```bash
-# Instructions borrowed from https://github.com/KaiyangZhou/Dassl.pytorch#installation
+# Clone PDA code base
+https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment.git
 
-# Clone this repo
-git clone https://github.com/KaiyangZhou/Dassl.pytorch.git
-cd Dassl.pytorch/
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Install this library (no need to re-build if the source code is modified)
-python setup.py develop
-cd ..
-```
-
-* Clone APT code repository and install requirements
-```bash
-# Clone APT code base
-https://github.com/BaiShuanghao/Attention-based-Prompt-Tuning.git
-
-cd Attention-based-Prompt-Tuning/
+cd Prompt-based-Distribution-Alignment/
 
 # Install requirements
 pip install -r requirements.txt
@@ -100,14 +81,14 @@ Please follow the instructions for training, evaluating and reproducing the resu
 Firstly, you need to modify the directory of data.
 ### Training 
 ```bash
-# trains on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
-bash scripts/apt/main_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
+# Example: trains on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
+bash scripts/pda/main_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 ```
 
 ### Evaluation
 ```bash
 # evaluates on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
-bash scripts/apt/eval_apt.sh officehome b32_ep10_officehome APT ViT-B/16 2 a-c 0
+bash scripts/pda/eval_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 ```
 The details are at each method folder in [scripts folder](scripts/).
 <hr />
@@ -115,7 +96,12 @@ The details are at each method folder in [scripts folder](scripts/).
 ## Citation
 If you use our work, please consider citing:
 ```bibtex
-xxxxxxxxxxxxxxxxxxxxx
+@inproceedings{bai2024prompt,
+  title={Prompt-based Distribution Alignment for Unsupervised Domain Adaptation},
+  author={Bai, Shuanghao and Zhang, Min and Zhou, Wanqi and Huang, Siteng and Luan, Zhirong and Wang, Donglin and Chen, Badong},
+  booktitle={Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024). AAAI Press},
+  year={2024}
+}
 ```
 
 
@@ -128,7 +114,7 @@ Supported methods are as follows:
 |---------------------------|:----------------------------------------------:|:---------------------------------------------------------------:|
 | CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134) |  [link](https://github.com/KaiyangZhou/CoOp)                         |
 | CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557) |  [link](https://github.com/KaiyangZhou/CoOp)                         |
-| VPT*                      | [-](https://arxiv.org/abs/2203.17274)         |  [link](https://github.com/hjbahng/visual_prompting)                 |
+| VP                        | [-](https://arxiv.org/abs/2203.17274)         |  [link](https://github.com/hjbahng/visual_prompting)                 |
 | VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274) |  [link](https://github.com/KMnP/vpt)                                 |
-| IVLP & MaPLe              | [CVPR 2023](https://arxiv.org/abs/2210.03117) | [link](https://github.com/muzairkhattak/multimodal-prompt-learning)  |
-| DAPL                      | [-](https://arxiv.org/abs/2202.06687)         | [link](https://github.com/LeapLabTHU/DAPrompt)                       |
+| IVLP & MaPLe              | [CVPR 2023](https://arxiv.org/abs/2210.03117) |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) |
+| DAPL                      | [-](https://arxiv.org/abs/2202.06687)         |  [link](https://github.com/LeapLabTHU/DAPrompt)                      |
