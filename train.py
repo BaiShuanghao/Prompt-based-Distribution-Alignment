@@ -61,7 +61,7 @@ def reset_cfg(cfg, args):
     if args.head:
         cfg.MODEL.HEAD.NAME = args.head
     
-    if args.gpu:
+    if args.gpu:   
         cfg.GPU = args.gpu
     
     if args.save:
@@ -296,9 +296,10 @@ if __name__ == "__main__":
     parser.add_argument("--no-train", action="store_true", help="do not call trainer.train()")
     parser.add_argument("--eval-only", action="store_true", help="evaluation only")
     
+    parser.add_argument("--gpu", type=str, default="0", help="which gpu to use")    # if you use this hyperpameter, you need modify the source code of dassl library.
+                                                                                    # i.e., in dassl.engine.trainer line 314: self.device = torch.device("cuda:{}".format(cfg.GPU))
     parser.add_argument("--seed", type=int, default=2,
                         help="only positive value enables a fixed seed")
-    parser.add_argument("--gpu", type=str, default="0", help="which gpu to use")
     parser.add_argument("--save", type=str, default=False, help="need to save model")
     parser.add_argument("opts", default=None, nargs=argparse.REMAINDER,
                         help="modify config options using the command-line")
