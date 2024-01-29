@@ -133,4 +133,4 @@ Supported methods are as follows:
 | VP                        | [-](https://arxiv.org/abs/2203.17274)         |  [link](https://github.com/hjbahng/visual_prompting)                 |
 | VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274) |  [link](https://github.com/KMnP/vpt)                                 |
 | IVLP & MaPLe              | [CVPR 2023](https://arxiv.org/abs/2210.03117) |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) |
-| DAPL                      | [TNNLS](https://arxiv.org/abs/2202.06687)     |  [link](https://github.com/LeapLabTHU/DAPrompt)                      |
+| DAPL                      | [TNNLS 2023](https://arxiv.org/abs/2202.06687)     |  [link](https://github.com/LeapLabTHU/DAPrompt)                      |
