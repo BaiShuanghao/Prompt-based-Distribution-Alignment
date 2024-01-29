@@ -1,6 +1,6 @@
 # Prompt-based Distribution Alignment [AAAI 2024]
 
-Official implementation of the paper "[Prompt-based Distribution Alignment for Unsupervised Domain Adaptation](https://arxiv.org/abs/2312.09553)".
+Official implementation of the paper "[Prompt-based Distribution Alignment for Unsupervised Domain Adaptation](https://arxiv.org/abs/2312.09553v2)".
 <hr />
 
 ## Highlights
