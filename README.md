@@ -112,9 +112,12 @@ The details are at each method folder in [scripts folder](scripts/).
 If you use our work, please consider citing:
 ```bibtex
 @inproceedings{bai2024prompt,
-  title={Prompt-based Distribution Alignment for Unsupervised Domain Adaptation},
+  title={Prompt-based distribution alignment for unsupervised domain adaptation},
   author={Bai, Shuanghao and Zhang, Min and Zhou, Wanqi and Huang, Siteng and Luan, Zhirong and Wang, Donglin and Chen, Badong},
-  booktitle={Proceedings of the 38th AAAI Conference on Artificial Intelligence (AAAI 2024). AAAI Press},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={38},
+  number={2},
+  pages={729--737},
   year={2024}
 }
 ```
