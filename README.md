@@ -118,6 +118,18 @@ bash scripts/pda/eval_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 ```
 The details are in each method folder in [scripts folder](scripts/).
 
+## Supported Methods
+Supported methods in this codespace are as follows:
+
+| Method                    |                   Paper                        |                             Code                                     |               Script                           |
+|---------------------------|:----------------------------------------------:|:--------------------------------------------------------------------:|:----------------------------------------------:|
+| CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |  [link](scripts/coop)                          |
+| CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |  [link](scripts/cocoop)                        |
+| VP                        | [-](https://arxiv.org/abs/2203.17274)          |  [link](https://github.com/hjbahng/visual_prompting)                 |  -                                             |
+| VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274)  |  [link](https://github.com/KMnP/vpt)                                 |  [link](scripts/vpt)                           |
+| IVLP & MaPLe              | [CVPR 2023](https://arxiv.org/abs/2210.03117)  |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) |  [link](scripts/ivlp) & [link](scripts/maple)  |
+| DAPL                      | [TNNLS 2023](https://arxiv.org/abs/2202.06687) |  [link](https://github.com/LeapLabTHU/DAPrompt)                      |  [link](scripts/dapl)                          |
+
 
 ## Citation
 If our code is helpful to your research or projects, please consider citing:
@@ -141,13 +153,4 @@ If you have any questions, please create an issue on this repository or contact 
 Our style of reademe refers to [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning). 
 And our code is based on [CoOp and CoCoOp](https://github.com/KaiyangZhou/CoOp), [DAPL](https://github.com/LeapLabTHU/DAPrompt/tree/main) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) etc. repository. We thank the authors for releasing their codes. If you use their codes, please consider citing these works as well.
 
-Supported methods in this codespace are as follows:
 
-| Method                    | Paper                                         |                             Code                            |  
-|---------------------------|:----------------------------------------------:|:---------------------------------------------------------------:|
-| CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134) |  [link](https://github.com/KaiyangZhou/CoOp)                         |
-| CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557) |  [link](https://github.com/KaiyangZhou/CoOp)                         |
-| VP                        | [-](https://arxiv.org/abs/2203.17274)         |  [link](https://github.com/hjbahng/visual_prompting)                 |
-| VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274) |  [link](https://github.com/KMnP/vpt)                                 |
-| IVLP & MaPLe              | [CVPR 2023](https://arxiv.org/abs/2210.03117) |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) |
-| DAPL                      | [TNNLS 2023](https://arxiv.org/abs/2202.06687)     |  [link](https://github.com/LeapLabTHU/DAPrompt)                      |
