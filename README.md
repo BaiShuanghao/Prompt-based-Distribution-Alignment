@@ -16,6 +16,9 @@ Authors: [Shuanghao Bai](https://scholar.google.com/citations?user=xhd94DIAAAAJ&
 ## Highlights
 
 ![main figure](model.jpg)
+
+<details>
+  
 > **<p align="justify"> Abstract:** *Recently, despite the unprecedented success of large pre-trained visual-language models (VLMs) on a wide range of downstream tasks, the real-world unsupervised domain adaptation (UDA) problem is still not well explored.
 Therefore, in this paper, we first experimentally demonstrate that the unsupervised-trained VLMs can significantly reduce the distribution discrepancy between source and target domains, thereby improving the performance of UDA. 
 However, a major challenge for directly deploying such models on downstream UDA tasks is prompt engineering, which requires aligning the domain knowledge of source and target domains, since the performance of UDA is severely influenced by a good domain-invariant representation.
@@ -25,11 +28,13 @@ To further minimize domain discrepancy, for the alignment branch, we construct f
 In this way, these two branches can be mutually promoted to enhance the adaptation of VLMs for UDA.
 We conduct extensive experiments on three benchmarks to demonstrate that our proposed PDA achieves state-of-the-art performance.* </p>
 
-## Main Contributions
+Main Contributions
 
 1) We first experimentally verify the effectiveness of VLM on UDA downstream tasks. Then, based on this finding, we further propose a prompt-based distribution alignment (PDA) method to tune prompt to the target domain.
 2) The proposed PDA includes two training branches. First, the base branch ensures discrimination among different classes. Second, the aligned branch obtains the domain-invariant information by image-guided feature tuning.
 3) Extensive experiments demonstrate the effectiveness of the proposed PDA, which achieves state-of-the-art performance on Office-Home, Office-31 and VisDA-2017.
+   
+</details>
 
 <hr />
 
