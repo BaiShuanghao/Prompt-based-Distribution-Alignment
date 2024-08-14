@@ -117,7 +117,7 @@ bash scripts/pda/main_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 bash scripts/pda/eval_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 ```
 The details are in each method folder in [scripts folder](scripts/).
-<hr />
+
 
 ## Citation
 If our code is helpful to your research or projects, please consider citing:
