@@ -95,8 +95,8 @@ cd Prompt-based-Distribution-Alignment
 pip install -r requirements.txt
 ```
 
-## Data preparation
-Please follow the instructions as follows to prepare all datasets.
+## Data Preparation
+Please follow the instructions to prepare all datasets.
 Datasets list:
 - [Office-Home](https://drive.google.com/file/d/0B81rNlvomiwed0V1YUxQdC1uOTg/view?pli=1&resourcekey=0-2SNWq0CDAuWOBRRBL7ZZsw)
 - [Office-31](https://faculty.cc.gatech.edu/~judy/domainadapt/#datasets_code)
@@ -106,7 +106,7 @@ Datasets list:
 
 
 ## Training and Evaluation
-Please follow the instructions for training, evaluating and reproducing the results.
+Please follow the instructions for training, evaluating, and reproducing the results.
 Firstly, you need to **modify the directory of data by yourself**.
 ### Training 
 ```bash
@@ -119,11 +119,11 @@ bash scripts/pda/main_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 # evaluates on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
 bash scripts/pda/eval_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 ```
-The details are at each method folder in [scripts folder](scripts/).
+The details are in each method folder in [scripts folder](scripts/).
 <hr />
 
 ## Citation
-If you use our work, please consider citing:
+If our code is helpful to your research or projects, please consider citing:
 ```bibtex
 @inproceedings{bai2024prompt,
   title={Prompt-based distribution alignment for unsupervised domain adaptation},
