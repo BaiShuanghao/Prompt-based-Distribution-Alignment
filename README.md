@@ -113,7 +113,7 @@ bash scripts/pda/main_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 
 ### Evaluation
 ```bash
-# evaluates on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
+# Example: evaluates on Office-Home dataset, and the source domian is art and the target domain is clipart (a-c)
 bash scripts/pda/eval_pda.sh officehome b32_ep10_officehome PDA ViT-B/16 2 a-c 0
 ```
 The details are in each method folder in [scripts folder](scripts/).
