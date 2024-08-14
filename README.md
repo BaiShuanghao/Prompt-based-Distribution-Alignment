@@ -41,7 +41,7 @@ We conduct extensive experiments on three benchmarks to demonstrate that our pro
 ### PDA in comparison with existing prompt tuning methods
 Results reported below show accuracy across 3 UDA datasets with ViT-B/16 backbone. Our PDA method adopts the paradigm of multi-modal prompt tuning.
 
-| Name                                                      | Office-Home Acc. | Office-31 Acc. |  VisDA-2017 Acc.  | 
+| Method                                                    | Office-Home Acc. | Office-31 Acc. |  VisDA-2017 Acc.  | 
 |-----------------------------------------------------------|:---------:|:----------:|:---------:|
 | [CLIP](https://arxiv.org/abs/2103.00020)                  |   82.1   |   77.5    |   88.9   | 
 | [CoOp](https://arxiv.org/abs/2109.01134)                  |   83.9   |   89.4    |   82.7   |
