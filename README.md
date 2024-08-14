@@ -2,11 +2,15 @@
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/prompt-based-distribution-alignment-for/unsupervised-domain-adaptation-on-office-home)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-office-home?p=prompt-based-distribution-alignment-for)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/prompt-based-distribution-alignment-for/unsupervised-domain-adaptation-on-visda2017)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-visda2017?p=prompt-based-distribution-alignment-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/prompt-based-distribution-alignment-for/unsupervised-domain-adaptation-on-office-31)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-office-31?p=prompt-based-distribution-alignment-for)
+
 [![arXiv](https://img.shields.io/badge/arXiv-2403.16131-b31b1b.svg)](https://arxiv.org/abs/2312.09553v2)
 ![GitHub stars](https://img.shields.io/github/stars/BaiShuanghao/Prompt-based-Distribution-Alignment)
 ![GitHub forks](https://img.shields.io/github/forks/BaiShuanghao/Prompt-based-Distribution-Alignment)
 
 Official implementation of the paper "[Prompt-based Distribution Alignment for Unsupervised Domain Adaptation](https://arxiv.org/abs/2312.09553v2)".
+
+Authors: [Shuanghao Bai](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Min Zhang, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Siteng Huang](https://scholar.google.com/citations?user=mhpkWSYAAAAJ&hl=zh-CN&oi=ao), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
 <hr />
 
 ## Highlights
