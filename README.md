@@ -1,6 +1,7 @@
 # Prompt-based Distribution Alignment [[AAAI 2024](https://ojs.aaai.org/index.php/AAAI/article/view/27830)]
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/prompt-based-distribution-alignment-for/unsupervised-domain-adaptation-on-office-home)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-office-home?p=prompt-based-distribution-alignment-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/prompt-based-distribution-alignment-for/unsupervised-domain-adaptation-on-visda2017)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-visda2017?p=prompt-based-distribution-alignment-for)
 [![arXiv](https://img.shields.io/badge/arXiv-2403.16131-b31b1b.svg)](https://arxiv.org/abs/2312.09553v2)
 ![GitHub stars](https://img.shields.io/github/stars/BaiShuanghao/Prompt-based-Distribution-Alignment)
 ![GitHub forks](https://img.shields.io/github/forks/BaiShuanghao/Prompt-based-Distribution-Alignment)
