@@ -143,7 +143,8 @@ If you have any questions, please create an issue on this repository or contact 
 
 Our style of reademe refers to [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning). 
 And our code is based on [CoOp and CoCoOp](https://github.com/KaiyangZhou/CoOp), [DAPL](https://github.com/LeapLabTHU/DAPrompt/tree/main) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) etc. repository. We thank the authors for releasing their code. If you use their model and code, please consider citing these works as well.
-Supported methods are as follows:
+
+Supported methods in this codespace are as follows:
 
 | Method                    | Paper                                         |                             Code                            |  
 |---------------------------|:----------------------------------------------:|:---------------------------------------------------------------:|
