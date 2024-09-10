@@ -128,7 +128,7 @@ Supported methods in this codespace are as follows:
 | CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |  [link](scripts/coop)                          |
 | CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |  [link](scripts/cocoop)                        |
 | VP                        | [-](https://arxiv.org/abs/2203.17274)          |  [link](https://github.com/hjbahng/visual_prompting)                 |  -                                             |
-| VPT                       | [ECCV 2022](https://arxiv.org/pdf/2203.12119)  |  [link](https://github.com/KMnP/vpt)                                 |  [link](scripts/vpt)                           |
+| VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.12119)  |  [link](https://github.com/KMnP/vpt)                                 |  [link](scripts/vpt)                           |
 | IVLP & MaPLe              | [CVPR 2023](https://arxiv.org/abs/2210.03117)  |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) |  [link](scripts/ivlp) & [link](scripts/maple)  |
 | DAPL                      | [TNNLS 2023](https://arxiv.org/abs/2202.06687) |  [link](https://github.com/LeapLabTHU/DAPrompt)                      |  [link](scripts/dapl)                          |
 
