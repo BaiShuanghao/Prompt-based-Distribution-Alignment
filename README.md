@@ -5,8 +5,10 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/prompt-based-distribution-alignment-for/unsupervised-domain-adaptation-on-visda2017)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-visda2017?p=prompt-based-distribution-alignment-for)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2312.09553v2-b31b1b.svg)](https://arxiv.org/abs/2312.09553v2)
+<!-- 
 ![GitHub stars](https://img.shields.io/github/stars/BaiShuanghao/Prompt-based-Distribution-Alignment)
 ![GitHub forks](https://img.shields.io/github/forks/BaiShuanghao/Prompt-based-Distribution-Alignment)
+-->
 
 Official implementation of the paper "[Prompt-based Distribution Alignment for Unsupervised Domain Adaptation](https://arxiv.org/abs/2312.09553v2)".
 
